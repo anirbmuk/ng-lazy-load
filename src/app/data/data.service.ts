@@ -24,7 +24,9 @@ export class DataService {
     delay(1500)
   );
 
-  fetchData(set: 'people' | 'places') {
+  readonly callback = (data: 'people' | 'places') => this.fetchData(data);
+
+  private fetchData(set: 'people' | 'places') {
     set === 'people' ? this.peActionS.next(set) : this.plActionS.next(set);
   }
 }

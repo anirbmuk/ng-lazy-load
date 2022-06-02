@@ -10,8 +10,6 @@ import { DataService } from './../../data';
 export class HomeComponent {
   constructor(private readonly data: DataService) {}
 
-  private readonly callback = (data: 'people' | 'places') =>
-    this.data.fetchData(data);
-  readonly callback1 = this.callback.bind(this.data, 'people');
-  readonly callback2 = this.callback.bind(this.data, 'places');
+  readonly callback1 = this.data.callback.bind(this.data, 'people');
+  readonly callback2 = this.data.callback.bind(this.data, 'places');
 }
